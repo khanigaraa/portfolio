@@ -43,7 +43,7 @@ test('a project card leads to its case study, and back returns to the list', asy
   await expect(h1(page)).toHaveText('Datworks: website portofolio fotografi');
   await expect(page.getByRole('link', { name: 'Lihat demo ↗' })).toHaveAttribute(
     'href',
-    'https://datworks-w9bw.vercel.app',
+    'https://datworks.vercel.app',
   );
   await expect(page.getByRole('link', { name: 'Lihat kode ↗' })).toHaveAttribute(
     'href',

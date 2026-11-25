@@ -12,7 +12,7 @@ stack:
   - GSAP
   - WebGL
 links:
-  demo: https://datworks-w9bw.vercel.app
+  demo: https://datworks.vercel.app
   repo: https://github.com/khanigaraa/datworks
 ---
 
