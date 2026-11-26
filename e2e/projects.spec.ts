@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 const h1 = (page: import('@playwright/test').Page) => page.getByRole('heading', { level: 1 });
 
-test('the project list shows the four projects in order, featured first', async ({ page }) => {
+test('the project list shows the three projects in order, featured first', async ({ page }) => {
   await page.goto('/projects');
   await expect(h1(page)).toHaveText('Proyek');
   await expect(page).toHaveTitle('Proyek · Kanta Khanigara');
@@ -11,21 +11,20 @@ test('the project list shows the four projects in order, featured first', async 
     'Sistem High Availability Multi-Node',
     'Datworks: website portofolio fotografi',
     'ashen.thread: demo toko online',
-    'Aplikasi Web E-Commerce (Marketplace)',
   ]);
   await expect(page.locator('.match-card').first().locator('.badge')).toHaveText('MVP · Unggulan');
-  await expect(page.locator('.match-no')).toHaveText(['Match #01', 'Match #02', 'Match #03', 'Match #04']);
+  await expect(page.locator('.match-no')).toHaveText(['Match #01', 'Match #02', 'Match #03']);
 });
 
 test('the whole match card opens the case study', async ({ page }) => {
   await page.goto('/projects');
   // Click on the card's summary text, away from the title link: the card itself is the target.
-  const summary = page.locator('#e-commerce .summary');
+  const summary = page.locator('#ashen-thread-store .summary');
   await summary.scrollIntoViewIfNeeded();
-  await expect(page.locator('#e-commerce')).toHaveCSS('opacity', '1');
+  await expect(page.locator('#ashen-thread-store')).toHaveCSS('opacity', '1');
   const box = (await summary.boundingBox())!;
   await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
-  await expect(page).toHaveURL(/\/projects\/e-commerce$/);
+  await expect(page).toHaveURL(/\/projects\/ashen-thread-store$/);
 });
 
 test('a case study opens straight from its URL', async ({ page }) => {
@@ -114,11 +113,6 @@ test('the HA case study links to the thesis code', async ({ page }) => {
   );
 });
 
-test('the E-Commerce case study states the role in the team of five', async ({ page }) => {
-  await page.goto('/projects/e-commerce');
-  await expect(page.locator('.project-meta')).toContainText('Tim 5 orang');
-  await expect(page.locator('.case-study')).toContainText('dokumentasi proyek');
-});
 
 test.describe('on a phone', () => {
   test.use({ viewport: { width: 375, height: 740 } });

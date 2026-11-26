@@ -9,7 +9,6 @@ const PAGES = [
   '/projects',
   '/projects/high-availability',
   '/projects/datworks',
-  '/projects/e-commerce',
   '/projects/ashen-thread-store',
   '/about',
   '/writing',
@@ -53,8 +52,8 @@ test('the navigation marks the current page and works with back/forward', async 
 
 test('a link to a section scrolls to it', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 600 });
-  await page.goto('/projects#e-commerce');
-  await expect(page.locator('#e-commerce')).toBeInViewport();
+  await page.goto('/projects#ashen-thread-store');
+  await expect(page.locator('#ashen-thread-store')).toBeInViewport();
   expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
 });
 
