@@ -9,15 +9,19 @@ test('the lobby shows the work experience as a rank journey, highest rank on top
   await expect(exp.getByRole('heading', { level: 3 })).toContainText('Ekara Coffee & Eatery');
   await expect(exp.getByRole('heading', { level: 4 })).toHaveText([
     'Manajer Stok (4 Outlet)',
-    'Headbar',
     'Staf Mobile (Kasir, Barista, Waiters)',
     'Waiters',
   ]);
-  await expect(exp.locator('.rank-badge')).toHaveText(['Rank 4', 'Rank 3', 'Rank 2', 'Rank 1']);
+  await expect(exp.locator('.rank-badge')).toHaveText(['Rank 3', 'Rank 2', 'Rank 1']);
   await expect(exp.locator('.rank').first()).toContainText('Feb 2026 – Mei 2026');
-  await expect(exp.locator('.rank').nth(2)).toContainText('Nov 2025');
-  await expect(exp.locator('.rank').nth(3)).toContainText('Paruh waktu');
+  await expect(exp.locator('.rank').nth(1)).toContainText('Nov 2025 – Jan 2026');
+  await expect(exp.locator('.rank').nth(1)).toContainText('merekonsiliasi kas harian tanpa selisih');
+  await expect(exp.locator('.rank').nth(1)).toContainText('melatih karyawan baru');
+  await expect(exp.locator('.rank').nth(2)).toContainText('Paruh waktu');
   await expect(exp).toContainText('selisih stok berhasil ditekan menjadi nol');
+  // As in the CV of 27 Nov 2026: no Headbar role and no revenue figures.
+  await expect(exp).not.toContainText('Headbar');
+  await expect(exp).not.toContainText(/omzet|juta/i);
 });
 
 test('certificates are achievements, newest first, without the English test', async ({ page }) => {

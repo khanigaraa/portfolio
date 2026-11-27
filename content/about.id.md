@@ -5,7 +5,7 @@ lede: Cerita singkat tentang bagaimana aku sampai di dunia infrastruktur dan web
 
 ## Belajar tenang di jam sibuk
 
-Sambil kuliah, aku bekerja di Ekara Coffee & Eatery di Ciumbuleuit, Bandung. Aku mulai sebagai waiters paruh waktu di hari-hari paling ramai, lalu naik bertahap: staf mobile, headbar, sampai **manajer stok untuk empat outlet**.
+Sambil kuliah, aku bekerja di Ekara Coffee & Eatery di Ciumbuleuit, Bandung. Aku mulai sebagai waiters paruh waktu di hari-hari paling ramai, lalu naik bertahap: staf mobile, sampai **manajer stok untuk empat outlet**.
 
 Dari sana aku belajar dua hal yang ternyata sangat berguna di dunia IT: tetap tenang saat semuanya serba cepat, dan **teliti dengan data**. Sebagai manajer stok, aku mencocokkan data pembelian dengan pemakaian dan stok nyata sampai selisihnya nol.
 

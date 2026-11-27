@@ -5,7 +5,7 @@ lede: A short story of how I ended up in infrastructure and the web.
 
 ## Learning to stay calm at rush hour
 
-While studying, I worked at Ekara Coffee & Eatery in Ciumbuleuit, Bandung. I started as a part-time waiter on the busiest days and moved up step by step: mobile staff, head of bar, and finally **stock manager for four outlets**.
+While studying, I worked at Ekara Coffee & Eatery in Ciumbuleuit, Bandung. I started as a part-time waiter on the busiest days and moved up step by step: mobile staff, and finally **stock manager for four outlets**.
 
 That taught me two things that turned out to matter a lot in IT: staying calm when everything moves fast, and **being careful with data**. As stock manager I reconciled purchases against usage and actual stock until the discrepancies were zero.
 

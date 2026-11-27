@@ -454,12 +454,14 @@ describe('content: education and about', () => {
 
   it('the real content follows the CV, without the English test', () => {
     const c = createContent(readContentFiles(CONTENT_DIR));
-    expect(c.listExperience('id')[0].roles.map((r) => r.title)).toEqual([
-      'Manajer Stok (4 Outlet)',
-      'Headbar',
-      'Staf Mobile (Kasir, Barista, Waiters)',
-      'Waiters',
-    ]);
+    const roles = c.listExperience('id')[0].roles;
+    expect(roles.map((r) => r.title)).toEqual(['Manajer Stok (4 Outlet)', 'Staf Mobile (Kasir, Barista, Waiters)', 'Waiters']);
+    expect(roles[1]).toMatchObject({ start: '2025-11', end: '2026-01' });
+    expect(roles[1].points).toHaveLength(2);
+    // As in the CV of 27 Nov 2026: no Headbar role, and no revenue figures anywhere in the content.
+    const all = JSON.stringify(c.data());
+    expect(all).not.toMatch(/headbar|head of bar/i);
+    expect(all).not.toMatch(/omzet|juta|million|IDR\s?\d|Rp\s?\d/i);
     expect(c.listCertificates('en').map((x) => x.issuer)).toEqual([
       'LSP Informatika',
       'Cisco Networking Academy',
